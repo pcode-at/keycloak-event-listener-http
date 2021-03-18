@@ -507,7 +507,7 @@
                 </provider>
             </spi>
             <spi name="eventsListener">
-                <provider name="http" enabled="true">
+                <provider name="http_event_listener" enabled="true">
                     <properties>
                         <property name="serverUri" value="http://profile:5000/keycloak_events"/>
                         <property name="username" value=""/>

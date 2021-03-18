@@ -80,7 +80,7 @@ public class HTTPEventListenerProviderFactory implements EventListenerProviderFa
 
     @Override
     public String getId() {
-        return "http";
+        return "http_event_listener";
     }
 
 }
