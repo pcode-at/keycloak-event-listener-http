@@ -64,7 +64,7 @@ public class HTTPEventListenerProviderFactory implements EventListenerProviderFa
             }
         }
 
-        serverUri = config.get("serverUri", "http://nginx/frontend_dev.php/webhook/keycloak");
+        serverUri = config.get("serverUri", System.getenv("EVENT_LISTENER_PATH"));
         username = config.get("username", null);
         password = config.get("password", null);
         topic = config.get("topic", "keycloak/events");
