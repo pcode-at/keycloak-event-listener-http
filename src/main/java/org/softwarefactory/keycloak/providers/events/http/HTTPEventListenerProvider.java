@@ -156,7 +156,7 @@ public class HTTPEventListenerProvider implements EventListenerProvider {
 
         json.put("user_id", event.getUserId());
         json.put("ip_address", event.getIpAddress());
-        json.put("clientId", event.getClientId());
+        json.put("client_id", event.getClientId());
 
         if (event.getError() != null) {
             json.put("error", event.getError());
