@@ -1,9 +1,6 @@
 # Logs
 *.log
 
-# Build
-/target
-
 .gradle
 **/build/
 !src/**/build/
