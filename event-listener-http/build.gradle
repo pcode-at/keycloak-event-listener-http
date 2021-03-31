@@ -27,7 +27,7 @@ dependencies {
     compileOnly 'org.keycloak:keycloak-server-spi-private:5.0.0'
 }
 
-group = 'keycloak-event-listener-http'
+group = 'com.github.pcode-at'
 version = '1.0.0'
 description = 'Keycloak: Event Publisher to HTTP'
 sourceCompatibility = '1.8'
