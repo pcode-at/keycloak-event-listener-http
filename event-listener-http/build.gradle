@@ -28,7 +28,7 @@ dependencies {
 }
 
 group = 'keycloak-event-listener-http'
-version = '1.0.0'
+version = '1.0.1'
 description = 'Keycloak: Event Publisher to HTTP'
 sourceCompatibility = '1.8'
 
