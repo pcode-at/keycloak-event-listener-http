@@ -48,26 +48,36 @@ public class HTTPEventListenerProviderFactory implements EventListenerProviderFa
 
     @Override
     public void init(Config.Scope config) {
-        String[] excludes = config.getArray("exclude-events");
-        if (excludes != null) {
-            excludedEvents = new HashSet<>();
-            for (String e : excludes) {
-                excludedEvents.add(EventType.valueOf(e));
+        try{
+            String[] excludes = config.getArray("exclude-events");
+            if (excludes != null) {
+                excludedEvents = new HashSet<>();
+                for (String e : excludes) {
+                    excludedEvents.add(EventType.valueOf(e));
+                }
             }
-        }
 
-        String[] excludesOperations = config.getArray("excludesOperations");
-        if (excludesOperations != null) {
-            excludedAdminOperations = new HashSet<>();
-            for (String e : excludesOperations) {
-                excludedAdminOperations.add(OperationType.valueOf(e));
+            String[] excludesOperations = config.getArray("excludesOperations");
+            if (excludesOperations != null) {
+                excludedAdminOperations = new HashSet<>();
+                for (String e : excludesOperations) {
+                    excludedAdminOperations.add(OperationType.valueOf(e));
+                }
             }
+            String eventListenerUri = System.getenv("EVENT_LISTENER_URI");
+            if(eventListenerUri == null){
+                throw new Exception("EVENT_LISTENER_PATH was not as an .env variable");
+            }
+            serverUri = config.get("serverUri", eventListenerUri);
+            username = config.get("username", null);
+            password = config.get("password", null);
+            topic = config.get("topic", "keycloak/events");
+        } catch(Exception e) {
+            // ?
+            System.out.println("UH OH!! " + e.toString());
+            e.printStackTrace();
+            return;
         }
-
-        serverUri = config.get("serverUri", System.getenv("EVENT_LISTENER_PATH"));
-        username = config.get("username", null);
-        password = config.get("password", null);
-        topic = config.get("topic", "keycloak/events");
     }
 
     @Override
