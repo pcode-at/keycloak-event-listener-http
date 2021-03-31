@@ -35,7 +35,7 @@ sourceCompatibility = '1.8'
 publishing {
     publications {
         maven(MavenPublication) {
-            from(components.java)w
+            from(components.java)
         }
     }
     repositories {
