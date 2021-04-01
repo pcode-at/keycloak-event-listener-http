@@ -73,9 +73,7 @@ public class HTTPEventListenerProviderFactory implements EventListenerProviderFa
             password = config.get("password", null);
             topic = config.get("topic", "keycloak/events");
         } catch(Exception e) {
-            // ?
-            System.out.println("UH OH!! " + e.toString());
-            e.printStackTrace();
+            System.out.println(e.toString());
             return;
         }
     }
