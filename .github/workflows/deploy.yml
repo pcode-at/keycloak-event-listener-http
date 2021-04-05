@@ -4,6 +4,9 @@ on:
     types: [created]
 jobs:
   publish:
+    defaults:
+      run:
+        working-directory: event-listener-http
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
